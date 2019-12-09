@@ -16,7 +16,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo">introspect</a>
+					<a href="/" class="logo">introspect</a>
 					<nav id="nav">
 						<a href="/">Home</a>
 						<a href="/hello">Hello</a>
@@ -35,7 +35,8 @@
 			<script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             
-        <!-- Footer -->
+		<!-- Footer -->
+		<!--
 			<section id="footer">
 				<div class="inner">
 					<header>
@@ -63,5 +64,6 @@
 					</div>
 				</div>
 			</section>
+		-->
     </body>
 </html>
