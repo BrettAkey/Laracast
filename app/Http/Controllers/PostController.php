@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = post::take(3)->latest('updated_at')->get();
+        $posts = post::take(5)->latest('updated_at')->get();
         return view('posts.index', [ 'posts' => $posts]);
     }
 
@@ -50,10 +50,10 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($post)
+    public function show($id)
     {
         return view('posts.post', [
-            'post' => post::find($post)
+            'post' => post::find($id)
         ]);
     }
 
@@ -63,9 +63,11 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(post $post)
+    public function edit($id)
     {
-        //
+        $post = post::find($id);
+
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -75,9 +77,15 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = post::find($id);
+
+        $post->title = request('title');
+        $post->body = request('body');
+        $post->save();
+
+        return redirect('/posts/'.$id);
     }
 
     /**

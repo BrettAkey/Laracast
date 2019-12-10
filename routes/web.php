@@ -34,6 +34,10 @@ Route::get('/posts/create', 'PostController@create');
 
 Route::get('/posts/{post}', 'PostController@show');
 
+Route::get('/posts/{post}/edit', 'PostController@edit');
+
+Route::put('/posts/{post}', 'PostController@update');
+
 Route::get('/task', function () {
     return view('task', [
         'tasks' => App\Task::take(3)->latest('created_at')->get()
