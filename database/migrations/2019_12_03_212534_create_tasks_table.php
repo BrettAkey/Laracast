@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Task;
 
 class CreateTasksTable extends Migration
 {
@@ -17,9 +18,19 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->timestamp('completed_at')->nullable();
+            $table->dateTime('completed_at')->nullable();
             $table->timestamps();
         });
+
+        $data = array(
+            array('title'=> 'Test DB', 'description'=> 'testing migratins and such', 'created_at'=> '2019-12-07 11:43:00', 
+            'updated_at'=> '2019-12-08 14:57:35', 'completed_at'=> '2019-12-08 14:57:35'),
+            array('title'=> 'Test posts', 'description'=> 'testing posts and if it pulls the correct data', 'created_at'=> '2019-12-09 13:33:00', 
+            'updated_at'=> '2019-12-10 10:35:13', 'completed_at'=> '2019-12-10 10:35:13'),
+            array('title'=> 'Laracast', 'description'=> 'complete laracast and all tutorials', 'created_at'=> '2019-12-10 09:56:36', 
+            'updated_at'=> '2019-12-10 09:56:36', 'completed_at'=>null),
+        );
+        Task::insert($data);
     }
 
     /**
