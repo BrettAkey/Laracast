@@ -36,6 +36,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'title' => ['required', 'min:3', 'max:50'],
+            'body' => 'required'
+        ]);
+
         $post = new post();
         $post->title = request('title');
         $post->body = request('body');
@@ -79,6 +84,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        request()->validate([
+            'title' => ['required', 'min:3', 'max:50'],
+            'body' => 'required'
+        ]);
         $post = post::find($id);
 
         $post->title = request('title');
