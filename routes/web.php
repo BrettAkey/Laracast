@@ -28,7 +28,7 @@ Route::get('/test', function () {
 });
 Route::get('/posts', 'PostController@index');
 
-Route::get('/post/{post}', 'PostController@show');
+Route::get('/posts/{post}', 'PostController@show');
 
 Route::get('/task', function () {
     return view('task', [

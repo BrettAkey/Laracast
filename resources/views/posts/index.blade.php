@@ -1,7 +1,7 @@
 @extends('layout')
     @section('content')
         @foreach ($posts as $post)
-            <a href="/post/{{ $post->id }}">{{ $post->title }}</a>
+            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
             <p>Last upadted at: {{ $post->updated_at }}</p>
         @endforeach       
     @endsection
