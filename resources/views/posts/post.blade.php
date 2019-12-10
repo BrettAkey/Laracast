@@ -1,5 +1,6 @@
 @extends('layout')
     @section('content')
-        <h1> Post Test </h1>
-        <p> post: {{ $post->output }} </p>       
+        <a href="/posts/{{ $post->id }}/edit">EDIT</a>
+        <h1> {{$post->title}} </h1>
+        <p> {{ $post->body }} </p>       
     @endsection
