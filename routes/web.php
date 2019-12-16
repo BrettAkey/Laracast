@@ -26,17 +26,17 @@ Route::get('/test', function () {
         'name' => request('name') ?? 'Brett Akey'
     ]);
 });
-Route::get('/posts', 'PostController@index');
+Route::get('/posts', 'PostController@index')->name('post.index');
 
-Route::post('/posts', 'PostController@store');
+Route::post('/posts', 'PostController@store')->name('post.store');
 
-Route::get('/posts/create', 'PostController@create');
+Route::get('/posts/create', 'PostController@create')->name('post.create');
 
-Route::get('/posts/{post}', 'PostController@show');
+Route::get('/posts/{post}', 'PostController@show')->name('post.show');
 
-Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
 
-Route::put('/posts/{post}', 'PostController@update');
+Route::put('/posts/{post}', 'PostController@update')->name('post.update');
 
 Route::get('/task', function () {
     return view('task', [

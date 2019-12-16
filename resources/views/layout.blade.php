@@ -20,7 +20,7 @@
 					<nav id="nav">
 						<a href="/">Home</a>
 						<a href="/hello">Hello</a>
-                        <a href="/posts">Posts</a>
+                        <a href="{{route('post.index')}}">Posts</a>
                         <a href="/task">Tasks</a>
 					</nav>
 				</div>

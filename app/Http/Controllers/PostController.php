@@ -36,17 +36,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'title' => ['required', 'min:3', 'max:50'],
-            'body' => 'required'
-        ]);
+        post::create($this->validatePost());
 
-        $post = new post();
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->save();
-
-        return redirect('/posts');
+        return redirect(route('post.index'));
     }
 
     /**
@@ -55,11 +47,9 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(post $post)
     {
-        return view('posts.post', [
-            'post' => post::find($id)
-        ]);
+        return view('posts.post', ['post' => $post]);
     }
 
     /**
@@ -68,10 +58,8 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(post $post)
     {
-        $post = post::find($id);
-
         return view('posts.edit', ['post' => $post]);
     }
 
@@ -82,19 +70,11 @@ class PostController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, post $post)
     {
-        request()->validate([
-            'title' => ['required', 'min:3', 'max:50'],
-            'body' => 'required'
-        ]);
-        $post = post::find($id);
+        $post->update($this->validatePost());
 
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->save();
-
-        return redirect('/posts/'.$id);
+        return redirect(route('post.show', $post));
     }
 
     /**
@@ -106,5 +86,13 @@ class PostController extends Controller
     public function destroy(post $post)
     {
         //
+    }
+
+    protected function validatePost()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:3', 'max:50'],
+            'body' => 'required'
+        ]);
     }
 }
