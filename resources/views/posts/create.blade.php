@@ -5,7 +5,7 @@
             <header>
                 <h2>New Post</h2>
             </header>
-            <form method="post" action="/posts">
+            <form method="post" action="{{route('post.index')}}">
                 @csrf
 
                 <div class="field">

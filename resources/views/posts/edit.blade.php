@@ -5,7 +5,7 @@
             <header>
                 <h2>Edit Post</h2>
             </header>
-            <form method="post" action="/posts/{{$post->id}}">
+            <form method="post" action="{{ route('post.show', $post) }}">
                 @csrf
                 @method('PUT')
 

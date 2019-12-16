@@ -38,7 +38,7 @@ class PostController extends Controller
     {
         post::create($this->validatePost());
 
-        return redirect('/posts');
+        return redirect(route('post.index'));
     }
 
     /**
@@ -74,7 +74,7 @@ class PostController extends Controller
     {
         $post->update($this->validatePost());
 
-        return redirect('/posts/'.$post->id);
+        return redirect(route('post.show', $post));
     }
 
     /**
