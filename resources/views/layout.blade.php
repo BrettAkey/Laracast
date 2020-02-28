@@ -16,7 +16,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<p class="logo">Brett Akey</p>
+					<a href="/" class="logo">Brett Akey</a>
 					<nav id="nav">
 						<a class="{{ Request::path() === '/' ? 'hide' : '' }}" href="/">Home</a>
 						<a class="{{ Request::path() === 'hello' ? 'hide' : '' }}" href="/hello">Hello</a>
