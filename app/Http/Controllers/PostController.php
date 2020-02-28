@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\post;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = post::take(5)->latest('updated_at')->get();
+        $posts = Post::take(5)->latest('updated_at')->get();
         return view('posts.index', [ 'posts' => $posts]);
     }
 
@@ -36,7 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        post::create($this->validatePost());
+        Post::create($this->validatePost());
 
         return redirect(route('post.index'));
     }
@@ -44,10 +44,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(post $post)
+    public function show(Post $post)
     {
         return view('posts.post', ['post' => $post]);
     }
@@ -55,10 +55,10 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(post $post)
+    public function edit(Post $post)
     {
         return view('posts.edit', ['post' => $post]);
     }
@@ -67,10 +67,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request, Post $post)
     {
         $post->update($this->validatePost());
 
@@ -80,10 +80,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(post $post)
+    public function destroy(Post $post)
     {
         //
     }
