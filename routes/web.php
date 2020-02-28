@@ -28,7 +28,7 @@ Route::get('/test', function () {
 });
 Route::get('/posts', 'PostController@index')->name('post.index');
 
-Route::post('/posts', 'PostController@store')->name('post.store');
+Route::Post('/posts', 'PostController@store')->name('post.store');
 
 Route::get('/posts/create', 'PostController@create')->name('post.create');
 

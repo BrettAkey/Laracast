@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
-use App\post;
+use App\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('Posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('body');
@@ -35,7 +35,7 @@ class CreatePostsTable extends Migration
             array('title'=>'Hello World', 'body'=>'Welcome to the greatest pratice ever.',
             'created_at'=> '2020-02-20 17:42:04', 'updated_at'=> '2020-02-26 13:05:04'),
         );
-        post::insert($data);
+        Post::insert($data);
     }
 
     /**
@@ -45,6 +45,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('Posts');
     }
 }
