@@ -3144,9 +3144,9 @@
 			padding: 0;
 		}
 
-			#header .logo:hover {
+			/*#header .logo:hover {
 				color: rgba(229, 71, 75, 0.75);
-			}
+			}*/
 
 		#header a {
 			-moz-transition: color 0.2s ease-in-out;
