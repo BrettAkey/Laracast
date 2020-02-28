@@ -18,10 +18,10 @@
 				<div class="inner">
 					<p class="logo">Brett Akey</p>
 					<nav id="nav">
-						<a href="/">Home</a>
-						<a href="/hello">Hello</a>
-                        <a href="{{route('post.index')}}">Posts</a>
-                        <a href="/task">Tasks</a>
+						<a class="{{ Request::path() === '/' ? 'hide' : '' }}" href="/">Home</a>
+						<a class="{{ Request::path() === 'hello' ? 'hide' : '' }}" href="/hello">Hello</a>
+                        <a class="{{ Request::path() === 'posts' ? 'hide' : '' }}" href="{{route('post.index')}}">Posts</a>
+                        <a class="{{ Request::path() === 'task' ? 'hide' : '' }}" href="/task">Tasks</a>
 					</nav>
 				</div>
 			</header>

@@ -3148,6 +3148,10 @@
 				color: rgba(229, 71, 75, 0.75);
 			}*/
 
+		#header .hide {
+			display: none;
+		}
+
 		#header a {
 			-moz-transition: color 0.2s ease-in-out;
 			-webkit-transition: color 0.2s ease-in-out;
@@ -3301,6 +3305,10 @@
 			display: block;
 			padding: 0.75em 0;
 			text-decoration: none;
+		}
+		
+		#navPanel a:not(.close).hide {
+			display: none;
 		}
 
 			#navPanel a:not(.close):first-child {
