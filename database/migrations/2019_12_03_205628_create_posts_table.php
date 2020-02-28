@@ -32,6 +32,8 @@ class CreatePostsTable extends Migration
             array('title'=>'Rolling Back Migrations', 'body'=>'To rollback the latest migration operation, you may use the rollback command. 
             This command rolls back the last "batch" of migrations, which may include multiple migration files.',
             'created_at'=> '2019-12-10 17:42:04', 'updated_at'=> '2019-12-10 17:42:04'),
+            array('title'=>'Hello World', 'body'=>'Welcome to the greatest pratice ever.',
+            'created_at'=> '2020-02-20 17:42:04', 'updated_at'=> '2020-02-26 13:05:04'),
         );
         post::insert($data);
     }

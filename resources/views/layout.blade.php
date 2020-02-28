@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Introspect by TEMPLATED</title>
+		<title>Larvel Practice</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -16,12 +16,12 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="/" class="logo">introspect</a>
+					<p class="logo">Brett Akey</p>
 					<nav id="nav">
-						<a href="/">Home</a>
-						<a href="/hello">Hello</a>
-                        <a href="{{route('post.index')}}">Posts</a>
-                        <a href="/task">Tasks</a>
+						<a class="{{ Request::path() === '/' ? 'hide' : '' }}" href="/">Home</a>
+						<a class="{{ Request::path() === 'hello' ? 'hide' : '' }}" href="/hello">Hello</a>
+                        <a class="{{ Request::path() === 'posts' ? 'hide' : '' }}" href="{{route('post.index')}}">Posts</a>
+                        <a class="{{ Request::path() === 'task' ? 'hide' : '' }}" href="/task">Tasks</a>
 					</nav>
 				</div>
 			</header>
