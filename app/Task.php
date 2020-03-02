@@ -12,4 +12,9 @@ class Task extends Model
         $this->completed_at = Carbon::now();
         $this->save();
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
