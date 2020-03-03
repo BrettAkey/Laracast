@@ -10,4 +10,10 @@
                 <li><input type="submit" value="Delete Post" class="alt" /></li>
             </ul>
         </form>
+
+        <p>
+            @foreach ($post->tags as $tag)
+                <a href="{{ route('post.index', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+            @endforeach
+        </p>
     @endsection

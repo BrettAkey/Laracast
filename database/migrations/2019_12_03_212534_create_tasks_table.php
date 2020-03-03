@@ -21,6 +21,11 @@ class CreateTasksTable extends Migration
             $table->text('description');
             $table->dateTime('completed_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
