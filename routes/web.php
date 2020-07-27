@@ -36,6 +36,8 @@ Route::get('/posts/{post}', 'PostController@show')->name('post.show');
 
 Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
 
+Route::delete('/posts/{post}', 'PostController@destroy')->name('post.delete');
+
 Route::put('/posts/{post}', 'PostController@update')->name('post.update');
 
 Route::get('/task', function () {

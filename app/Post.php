@@ -12,6 +12,16 @@ class Post extends Model
     {
         return 'title';
     }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
 
 
