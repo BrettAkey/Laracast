@@ -21,7 +21,8 @@ class PostController extends Controller
         } else {
             $posts = Post::take(5)->latest('updated_at')->get();
         }
-        return view('posts.index', [ 'posts' => $posts]);
+        $tags = Tag::get();
+        return view('posts.index', [ 'posts' => $posts, 'tags' => $tags]);
     }
 
     /**
